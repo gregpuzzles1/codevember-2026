@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#172b28">
+  <title>Feather — Birds of Northern Colorado</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <div class="hero">
+    <div id="scene" aria-label="Interactive three-dimensional bird exhibition"></div>
+    <div class="scene-shade"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Feather home"><span class="brand-mark">✳</span><span>feather<span class="brand-dot">.</span></span></a>
+      <div class="top-center"><span class="small-star">✳</span> A FIELD GUIDE TO NORTHERN COLORADO</div>
+      <button class="about-button" id="about-button">ABOUT THE PROJECT <span>↗</span></button>
+    </header>
+
+    <section class="intro">
+      <div class="eyebrow"><span class="line"></span> THE WILD IS CLOSER THAN YOU THINK</div>
+      <h1>Take a moment.<br><em>Look closer.</em></h1>
+      <p>From the high peaks to the open plains, meet the remarkable birds that call Northern Colorado home.</p>
+      <button class="explore-button" id="explore-button"><span class="button-icon">↗</span> EXPLORE THE BIRDS</button>
+    </section>
+
+    <div class="scene-label"><span class="live-dot"></span> LIVE EXHIBITION <span class="label-divider"></span> NORTHERN COLORADO, USA</div>
+    <div class="scene-hint"><span class="drag-icon">↔</span> DRAG TO LOOK AROUND</div>
+
+    <aside class="bird-info" aria-live="polite">
+      <div class="info-top"><span>FEATURED FIELD NOTE</span><span id="bird-index">01 / 26</span></div>
+      <div class="info-rule"></div>
+      <div class="bird-category" id="bird-category">THE BACKYARD VISITOR</div>
+      <h2 id="bird-name">American robin</h2>
+      <div class="scientific" id="bird-scientific">Turdus migratorius</div>
+      <p id="bird-description">A familiar flash of warm rust, often spotted listening for earthworms in the grass.</p>
+      <div class="info-stats">
+        <div><span>HABITAT</span><strong id="bird-habitat">Woodlands &amp; yards</strong></div>
+        <div><span>BODY LENGTH</span><strong id="bird-length">23–28 cm</strong></div>
+      </div>
+      <div class="size-note"><span class="size-icon">✳</span><span id="bird-size">About 1.7× a house sparrow</span></div>
+      <div class="info-bottom"><span>FIELD NOTES <b>001—026</b></span><span>✳</span></div>
+    </aside>
+    </div>
+
+    <section class="collection" id="collection" aria-label="Bird collection">
+      <div class="collection-heading">
+        <div><span class="collection-kicker">A LITTLE FIELD GUIDE</span><h2>Find your feather <em>✳</em></h2></div>
+        <div class="collection-right"><span>26 BIRDS TO DISCOVER</span></div>
+      </div>
+      <div class="bird-list" id="bird-list"></div>
+      <div class="collection-footer"><span>MADE FOR THE CURIOUS, BY NATURE.</span><span>TAKE ONLY MEMORIES. LEAVE ONLY FOOTPRINTS. &nbsp; ✳</span></div>
+    </section>
+  </main>
+  <dialog id="about-dialog">
+    <button class="close-dialog" id="close-about" aria-label="Close">×</button>
+    <span class="collection-kicker">A NOTE FROM THE FIELD</span>
+    <h2>A little closer to wild.</h2>
+    <p>Feather is an interactive celebration of the birds and landscapes of Northern Colorado. Choose a bird to explore its field note, then drag the scene to look around.</p>
+    <p>The birds are original, stylized 3D interpretations rather than identification guides. Lengths are approximate adult ranges; size comparisons use the midpoint of each range. Some broad names in the original list are represented by a familiar species.</p>
+    <button class="dialog-done" id="done-about">BACK TO THE FIELD ↗</button>
+  </dialog>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
