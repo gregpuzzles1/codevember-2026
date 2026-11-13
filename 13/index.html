@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#e9e3d3">
+  <meta name="description" content="Take a quiet walk through a garden labyrinth in this interactive 3D experience.">
+  <title>Labyrinth — Codevember Day 13</title>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gregpuzzles1.github.io/codevember-2026/13/">
+  <meta property="og:title" content="Labyrinth — Codevember Day 13">
+  <meta property="og:description" content="Take a quiet walk through a garden labyrinth in this interactive 3D experience.">
+  <meta property="og:image" content="https://gregpuzzles1.github.io/codevember-2026/13/social-preview.jpg">
+  <meta property="og:image:alt" content="A winding garden labyrinth with a bench at its center">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Labyrinth — Codevember Day 13">
+  <meta name="twitter:description" content="Take a quiet walk through a garden labyrinth in this interactive 3D experience.">
+  <meta name="twitter:image" content="https://gregpuzzles1.github.io/codevember-2026/13/social-preview.jpg">
+  <meta name="twitter:image:alt" content="A winding garden labyrinth with a bench at its center">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="experience">
+    <div id="scene" role="img" aria-label="Interactive three-dimensional garden labyrinth. Drag to look around."></div>
+    <div class="scene-wash" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Labyrinth home"><span class="brand-mark">✳</span>still<span class="brand-dot">.</span></a>
+      <span class="day-mark">CODEVEMBER <b>—</b> DAY 13</span>
+      <button class="soundless" id="view-reset" type="button">RESET VIEW <span>↗</span></button>
+    </header>
+
+    <section class="intro" aria-labelledby="page-title">
+      <div class="eyebrow"><span class="eyebrow-line"></span> A GARDEN FOR GETTING LOST</div>
+      <h1 id="page-title">Find your way<br><em>to stillness.</em></h1>
+      <p>One winding path. A quiet bench at its heart. Take your time getting there.</p>
+    </section>
+
+    <div class="scene-caption"><span class="live-dot"></span> THE GARDEN LABYRINTH <span class="caption-divider"></span> DRAG TO LOOK AROUND</div>
+
+    <aside class="journey-card" aria-label="Labyrinth journey controls">
+      <div class="card-overline"><span>YOUR WALK</span><span id="journey-count">01 <i>/ 01</i></span></div>
+      <div class="card-rule"></div>
+      <div class="journey-state" id="journey-state" aria-live="polite">AT THE GARDEN GATE</div>
+      <h2 id="journey-title">A slower way<br>forward.</h2>
+      <p id="journey-copy">Follow the stones as they circle inward. The bench is waiting in the middle.</p>
+      <div class="progress-track" aria-label="Path progress"><span id="progress"></span></div>
+      <div class="progress-labels"><span>THE GATE</span><span>THE CENTER</span></div>
+      <div class="card-actions">
+        <button class="walk-button" id="walk-button" type="button"><span class="walk-icon">↗</span><span id="walk-label">BEGIN THE WALK</span></button>
+      </div>
+      <div class="card-foot"><span>TAKE THE SAME PATH BACK</span><span class="foot-star">✳</span></div>
+    </aside>
+
+    <div class="drag-hint" aria-hidden="true"><span>↔</span> DRAG TO EXPLORE</div>
+    <div class="scene-credit">A MOMENT OUT OF THE EVERYDAY <span>✳</span></div>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
