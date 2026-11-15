@@ -1,0 +1,87 @@
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #fff4dc;
+  background: #c77958;
+  font-synthesis: none;
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+.experience { position: relative; height: 100svh; min-height: 620px; overflow: hidden; background: #d78c68; }
+#scene, .vignette { position: absolute; inset: 0; }
+#scene canvas { display: block; width: 100%; height: 100%; }
+.vignette { pointer-events: none; background: linear-gradient(90deg, rgba(91, 44, 37, .42), transparent 49%), linear-gradient(180deg, rgba(102, 47, 42, .24), transparent 22%, transparent 76%, rgba(77, 38, 35, .29)); }
+.topbar { position: absolute; z-index: 1; inset: 0 0 auto; height: 82px; padding: 0 6%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255, 244, 220, .28); }
+.brand { color: inherit; text-decoration: none; font-size: 20px; font-weight: 700; letter-spacing: -1px; }
+.brand-icon { display: inline-block; margin-right: 7px; color: #ffddaa; font-size: 22px; }
+.brand-period { color: #ffd497; }
+.day, .pause, .eyebrow, .coordinates, .scene-note, .card-top, .card-kicker, .slider-heading, .slider-labels, .footer { font-size: 9px; font-weight: 700; letter-spacing: 1.5px; }
+.day span { margin: 0 8px; opacity: .6; }
+.pause { border: 0; padding: 12px 0; color: inherit; background: transparent; }
+.pause span:first-child { margin-right: 7px; font-size: 13px; }
+.pause:focus-visible, input:focus-visible { outline: 2px solid #fff4dc; outline-offset: 5px; }
+.intro { position: absolute; z-index: 1; top: 23%; left: 8%; width: min(510px, 45vw); pointer-events: none; }
+.eyebrow { display: flex; align-items: center; font-size: 8px; }
+.eyebrow > span { width: 27px; height: 1px; margin-right: 12px; background: #ffdfb4; }
+h1 { margin: 24px 0 18px; font: 400 clamp(54px, 5.7vw, 80px)/.95 "DM Serif Display", Georgia, serif; letter-spacing: -2.5px; }
+h1 em { color: #ffe0ad; font-weight: 400; }
+.intro p { max-width: 285px; margin: 0; color: #fff0dc; font-size: 13px; line-height: 1.8; }
+.coordinates { display: flex; align-items: center; margin-top: 40px; font-size: 8px; letter-spacing: 1.1px; }
+.coordinates > span { margin-right: 9px; font-size: 19px; }
+.coordinates i { width: 20px; height: 1px; margin: 0 10px; background: rgba(255, 244, 220, .65); }
+.scene-note { position: absolute; right: 6%; top: 110px; color: rgba(255, 246, 225, .9); font-size: 8px; }
+.scene-note span { margin-right: 7px; color: #ffe0ad; font-size: 13px; }
+.scroll-hint { display: none; }
+.control-card { position: absolute; z-index: 1; right: 6%; bottom: 11%; width: 300px; padding: 22px 24px 24px; color: #734f40; background: #fff3dc; box-shadow: 0 14px 50px rgba(89, 46, 37, .17); }
+.card-top { display: flex; justify-content: space-between; color: #ad8d78; font-size: 8px; letter-spacing: 1.1px; }
+.card-line { height: 1px; margin: 14px 0 21px; background: #e8d8c0; }
+.card-heading { display: flex; justify-content: space-between; align-items: center; }
+.card-kicker { color: #c37d5a; font-size: 8px; }
+.card-heading h2 { margin: 8px 0 0; color: #674438; font: 400 28px/1 "DM Serif Display", Georgia, serif; }
+.sun-icon { color: #d59164; font-size: 36px; line-height: 1; }
+.control-card p { margin: 11px 0 24px; color: #987b69; font-size: 11px; line-height: 1.6; }
+.slider-heading, .slider-labels { display: flex; justify-content: space-between; font-size: 8px; letter-spacing: 1px; }
+.slider-heading output { color: #c47b58; }
+input[type="range"] { display: block; width: 100%; height: 18px; margin: 8px 0 3px; appearance: none; background: transparent; cursor: pointer; }
+input[type="range"]::-webkit-slider-runnable-track { height: 3px; background: #dcbca1; }
+input[type="range"]::-moz-range-track { height: 3px; background: #dcbca1; }
+input[type="range"]::-webkit-slider-thumb { width: 14px; height: 14px; margin-top: -5.5px; appearance: none; border: 2px solid #fff3dc; border-radius: 50%; background: #c67d59; box-shadow: 0 0 0 1px #c67d59; }
+input[type="range"]::-moz-range-thumb { width: 10px; height: 10px; border: 2px solid #fff3dc; border-radius: 50%; background: #c67d59; box-shadow: 0 0 0 1px #c67d59; }
+.slider-labels { color: #baa18e; font-size: 7px; }
+.footer { position: absolute; z-index: 1; right: 6%; bottom: 26px; left: 6%; display: flex; justify-content: space-between; color: rgba(255, 244, 220, .85); font-size: 8px; }
+.footer-star { margin: 0 7px; color: #ffdcaa; font-size: 14px; }
+.scene-error { position: absolute; z-index: 3; left: 50%; top: 50%; width: min(90%, 420px); padding: 20px; transform: translate(-50%, -50%); color: #674438; background: #fff3dc; text-align: center; line-height: 1.5; }
+@media (max-width: 700px) {
+  .experience { min-height: 960px; }
+  .topbar { height: 68px; padding: 0 5%; }
+  .brand { font-size: 17px; }
+  .day { font-size: 7px; letter-spacing: .8px; }
+  .pause { font-size: 8px; }
+  .intro { top: 17%; left: 6%; width: 85%; }
+  h1 { margin: 18px 0 12px; font-size: clamp(48px, 10vw, 70px); }
+  .intro p { max-width: 255px; font-size: 12px; }
+  .coordinates { margin-top: 20px; font-size: 7px; }
+  .scene-note { top: 84px; right: 5%; font-size: 7px; }
+  .control-card { right: 5%; bottom: 70px; width: 255px; padding: 17px 19px 19px; }
+  .card-line { margin: 11px 0 15px; }
+  .card-heading h2 { font-size: 24px; }
+  .control-card p { margin: 8px 0 15px; }
+  .footer { right: 5%; bottom: 20px; left: 5%; font-size: 7px; letter-spacing: .8px; }
+}
+@media (max-width: 380px) {
+  .day { display: none; }
+  .footer span:last-child { display: none; }
+}
+@media (orientation: landscape) and (max-height: 500px), (orientation: landscape) and (max-width: 1400px) {
+  .experience { height: auto; min-height: 0; padding: max(100svh, 420px) 5% 65px; }
+  #scene, .vignette { inset: 0; }
+  .topbar { height: 64px; }
+  .intro { top: 100px; width: 42%; }
+  h1 { margin: 15px 0 10px; font-size: clamp(42px, 6vw, 58px); }
+  .coordinates { margin-top: 15px; }
+  .scene-note { top: 84px; }
+  .scroll-hint { display: block; position: absolute; z-index: 1; top: calc(100svh - 20px); right: 6%; font-size: 8px; font-weight: 700; letter-spacing: 1.2px; }
+  .control-card { position: relative; right: auto; bottom: auto; width: min(300px, 100%); margin: 20px 0 0 auto; }
+  .footer { bottom: 20px; }
+}

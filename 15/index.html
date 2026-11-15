@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#c56c4e">
+  <meta name="description" content="A little desert illusion for Codevember Day 15.">
+  <title>Mirage — Codevember Day 15</title>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gregpuzzles1.github.io/codevember-2026/15/">
+  <meta property="og:title" content="Mirage — Codevember Day 15">
+  <meta property="og:description" content="A little desert illusion for Codevember Day 15.">
+  <meta property="og:image" content="https://gregpuzzles1.github.io/codevember-2026/15/social-preview.png">
+  <meta property="og:image:alt" content="A shimmering palm-tree oasis among desert dunes at sunset">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mirage — Codevember Day 15">
+  <meta name="twitter:description" content="A little desert illusion for Codevember Day 15.">
+  <meta name="twitter:image" content="https://gregpuzzles1.github.io/codevember-2026/15/social-preview.png">
+  <meta name="twitter:image:alt" content="A shimmering palm-tree oasis among desert dunes at sunset">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="experience">
+    <div id="scene" role="img" aria-label="A shimmering oasis with palm trees among desert dunes at sunset"></div>
+    <div class="vignette" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <a class="brand" href="../" aria-label="Codevember home"><span class="brand-icon">✳</span> out of office<span class="brand-period">.</span></a>
+      <span class="day">A LITTLE ESCAPE <span> / </span> NO. 15</span>
+      <button class="pause" id="pause" type="button" aria-pressed="false"><span id="pause-icon">Ⅱ</span> <span id="pause-label">PAUSE</span></button>
+    </header>
+
+    <section class="intro" aria-labelledby="title">
+      <div class="eyebrow"><span></span> CODEVEMBER 2026 &nbsp; / &nbsp; DAY 15</div>
+      <h1 id="title">Is it real,<br><em>or a mirage?</em></h1>
+      <p>Somewhere between the heat and the horizon, there's a place that might not exist.</p>
+      <div class="coordinates"><span>☼</span> 25° 04' N &nbsp; 55° 08' E <i></i> LOST IN THE DESERT</div>
+    </section>
+
+    <div class="scene-note" aria-hidden="true"><span>✦</span> AN OASIS, OR SOMETHING LIKE IT</div>
+    <div class="scroll-hint" aria-hidden="true">SCROLL FOR HEAT CONTROLS ↓</div>
+
+    <aside class="control-card" aria-label="Mirage controls">
+      <div class="card-top"><span>THE DESERT IS DREAMING</span><span>01 — 15</span></div>
+      <div class="card-line"></div>
+      <div class="card-heading"><div><span class="card-kicker">A TRICK OF THE LIGHT</span><h2>Turn up the heat.</h2></div><span class="sun-icon">☼</span></div>
+      <p>Watch the oasis shimmer and come alive.</p>
+      <div class="slider-heading"><label for="heat">HEAT HAZE</label><output id="heat-value" for="heat">65%</output></div>
+      <input id="heat" type="range" min="0" max="100" value="65">
+      <div class="slider-labels"><span>CRYSTAL CLEAR</span><span>JUST A DREAM</span></div>
+    </aside>
+
+    <footer class="footer"><span><span class="footer-star">✳</span> A MOMENT SOMEWHERE ELSE</span><span>MADE FOR WANDERING <span class="footer-star">↗</span></span></footer>
+    <div class="scene-error" id="scene-error" role="status" hidden>Unable to create the desert scene. Please try a browser with WebGL enabled.</div>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

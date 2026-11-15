@@ -3,3 +3,4 @@ Codevember is a creative coding challenge where you build small projects during 
 
 - Day 12: [Feather — Birds of Northern Colorado](https://gregpuzzles1.github.io/codevember-2026/12/)
 - Day 13: [Labyrinth — A Garden for Getting Lost](https://gregpuzzles1.github.io/codevember-2026/13/)
+- Day 15: [Mirage — A Little Desert Illusion](https://gregpuzzles1.github.io/codevember-2026/15/)
