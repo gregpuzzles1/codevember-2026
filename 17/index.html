@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#06213a">
+  <meta name="description" content="Steer a tiny courier fish through the swaying kelp forest, grab pearls and make every drop-off.">
+  <title>Kelp Courier — Codevember Day 17</title>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gregpuzzles1.github.io/codevember-2026/17/">
+  <meta property="og:site_name" content="Codevember 2026">
+  <meta property="og:title" content="Kelp Courier — Codevember Day 17">
+  <meta property="og:description" content="Steer a tiny courier fish through the swaying kelp forest, grab pearls and make every drop-off.">
+  <meta property="og:image" content="https://gregpuzzles1.github.io/codevember-2026/17/social-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="An orange courier fish carrying a parcel through a golden kelp forest, beside the title Kelp Courier.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kelp Courier — Codevember Day 17">
+  <meta name="twitter:description" content="Steer a tiny courier fish through the swaying kelp forest, grab pearls and make every drop-off.">
+  <meta name="twitter:image" content="https://gregpuzzles1.github.io/codevember-2026/17/social-preview.png">
+  <meta name="twitter:image:alt" content="An orange courier fish carrying a parcel through a golden kelp forest, beside the title Kelp Courier.">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="game" id="game">
+    <div id="scene" role="img" aria-label="A side-scrolling kelp forest game. Steer the courier fish up and down through the gaps in the swaying kelp."></div>
+    <div class="light-wash" aria-hidden="true"></div>
+
+    <header class="hud" id="hud">
+      <div class="score-block">
+        <span class="label">SCORE</span>
+        <span class="score" id="score">0</span>
+        <span class="sub"><b id="distance">0</b> m <i></i> <b id="pearls">0</b> pearls <i></i> <b id="deliveries">0</b> delivered</span>
+      </div>
+      <div class="hud-right">
+        <div class="lives" id="lives" role="img" aria-label="3 lives left"></div>
+        <button class="icon-button music-button" id="music-button" type="button" aria-label="Turn music off" aria-pressed="true">♫</button>
+        <button class="icon-button" id="pause-button" type="button" aria-label="Pause">Ⅱ</button>
+      </div>
+    </header>
+
+    <div class="dropoff" id="dropoff" aria-hidden="true">
+      <span class="dropoff-label">NEXT DROP-OFF <b id="dropoff-distance">180 m</b></span>
+      <span class="dropoff-track"><span id="dropoff-fill"></span></span>
+    </div>
+
+    <p class="hint" id="hint">↑ ↓ OR DRAG TO SWIM <i></i> P TO PAUSE</p>
+    <p class="toast" id="toast" role="status" aria-live="polite"></p>
+    <span class="day-mark">CODEVEMBER <b>—</b> DAY 17</span>
+
+    <section class="panel" id="panel" aria-labelledby="panel-title">
+      <div class="panel-card">
+        <div class="eyebrow"><span></span><em id="panel-eyebrow">A SMALL JOB IN A BIG FOREST</em></div>
+        <h1 id="panel-title">Kelp<br><em>Courier.</em></h1>
+        <p id="panel-copy">Carry the parcel through the forest. Slip through the gaps in the swaying kelp, collect pearls, and make every drop-off.</p>
+        <dl class="panel-stats" id="panel-stats" hidden>
+          <div><dt>SCORE</dt><dd id="final-score">0</dd></div>
+          <div><dt>BEST</dt><dd id="best-score">0</dd></div>
+          <div><dt>DELIVERED</dt><dd id="final-deliveries">0</dd></div>
+        </dl>
+        <ul class="controls" id="panel-controls">
+          <li><b>MOUSE / TOUCH</b> Move or drag to swim</li>
+          <li><b>↑ ↓ &nbsp;W S</b> Swim with the keyboard</li>
+          <li><b>GOLD RING</b> Swim through to deliver</li>
+          <li><b>M / ♫</b> Toggle the gentle soundtrack</li>
+        </ul>
+        <button class="primary" id="panel-button" type="button"><span class="arrow" aria-hidden="true">↗</span><span id="panel-button-label">DIVE IN</span></button>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
