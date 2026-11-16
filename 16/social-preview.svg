@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="background" cx="70%" cy="42%" r="80%"><stop stop-color="#f8f8e6"/><stop offset="1" stop-color="#e7efdc"/></radialGradient>
+    <radialGradient id="spore" cx="35%" cy="25%" r="75%"><stop stop-color="#e6f4bd"/><stop offset=".6" stop-color="#b5d990"/><stop offset="1" stop-color="#82ad76"/></radialGradient>
+    <linearGradient id="cap" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#e7a285"/><stop offset="1" stop-color="#b86e58"/></linearGradient>
+    <linearGradient id="stem"><stop stop-color="#e1e4ba"/><stop offset=".5" stop-color="#faf5dd"/><stop offset="1" stop-color="#c9d7a7"/></linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#background)"/>
+  <rect x="28" y="28" width="1144" height="574" rx="12" fill="none" stroke="#d6e3cf"/>
+  <circle cx="78" cy="75" r="18" fill="#173d36"/>
+  <text x="78" y="81" text-anchor="middle" fill="#e4efc6" font-family="Arial, sans-serif" font-size="21">✳</text>
+  <text x="110" y="81" fill="#173d36" font-family="Arial, sans-serif" font-weight="700" font-size="18">little nature lab</text>
+  <text x="65" y="183" fill="#779283" font-family="Arial, sans-serif" font-weight="700" font-size="13" letter-spacing="3">THE SECRET LIFE OF FUNGI</text>
+  <text x="61" y="285" fill="#173d36" font-family="Georgia, serif" font-size="83" letter-spacing="-4">From spore</text>
+  <text x="61" y="381" fill="#173d36" font-family="Georgia, serif" font-size="83" letter-spacing="-4">to <tspan fill="#79996a" font-style="italic">more.</tspan></text>
+  <text x="66" y="447" fill="#6f8278" font-family="Arial, sans-serif" font-size="20">A tiny beginning. A remarkable journey.</text>
+  <rect x="65" y="484" width="234" height="40" rx="20" fill="#173d36"/>
+  <text x="182" y="509" text-anchor="middle" fill="#eef5df" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="1">CODEVEMBER · DAY 16</text>
+  <g fill="none" stroke="#abc8a4">
+    <circle cx="866" cy="310" r="210" opacity=".27"/>
+    <circle cx="866" cy="310" r="170" opacity=".32"/>
+    <circle cx="866" cy="310" r="130" opacity=".22"/>
+    <circle cx="866" cy="310" r="250" opacity=".2" stroke-dasharray="3 7"/>
+  </g>
+  <g fill="url(#spore)" stroke="#98c28b" stroke-width="2">
+    <circle cx="678" cy="158" r="29"/><circle cx="1054" cy="172" r="22"/>
+    <circle cx="677" cy="454" r="23"/><circle cx="1050" cy="452" r="31"/>
+  </g>
+  <g fill="#7cac70" opacity=".6">
+    <circle cx="670" cy="149" r="3"/><circle cx="688" cy="166" r="2.5"/><circle cx="1050" cy="164" r="3"/>
+    <circle cx="1058" cy="181" r="2"/><circle cx="668" cy="450" r="2.5"/><circle cx="684" cy="461" r="2"/>
+    <circle cx="1041" cy="443" r="3"/><circle cx="1061" cy="459" r="3"/>
+  </g>
+  <ellipse cx="866" cy="440" rx="130" ry="19" fill="#d2e4bb" opacity=".7"/>
+  <g fill="none" stroke="#83af79" stroke-width="4" stroke-linecap="round">
+    <path d="M866 433 804 454 766 445 M804 454 787 463 M866 433 926 454 967 444 M926 454 945 463"/>
+    <path d="M866 433 821 428 797 434 M866 433 913 425 939 430"/>
+  </g>
+  <path d="M840 434c10-46 9-91 6-128h40c-3 37-4 82 6 128-13 9-39 9-52 0Z" fill="url(#stem)" stroke="#a9bf91" stroke-width="2"/>
+  <ellipse cx="866" cy="307" rx="105" ry="18" fill="#eadcba" stroke="#c3b991" stroke-width="2"/>
+  <path d="M754 307c13-67 54-107 112-107s99 40 112 107c-29-8-64-12-112-12s-83 4-112 12Z" fill="url(#cap)" stroke="#aa6855" stroke-width="2"/>
+  <path d="M788 270c14-30 38-47 68-51" fill="none" stroke="#f6c8a9" stroke-width="7" stroke-linecap="round" opacity=".65"/>
+  <g fill="#f5e3bb"><ellipse cx="862" cy="232" rx="8" ry="5"/><ellipse cx="902" cy="248" rx="9" ry="5"/><ellipse cx="824" cy="267" rx="8" ry="5"/><ellipse cx="872" cy="273" rx="10" ry="6"/><ellipse cx="927" cy="279" rx="7" ry="4"/><ellipse cx="795" cy="287" rx="6" ry="4"/></g>
+  <text x="66" y="574" fill="#94a69a" font-family="Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="2">FOR THE ENDLESSLY CURIOUS</text>
+  <text x="1133" y="574" text-anchor="end" fill="#94a69a" font-family="Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="2">OBSERVE · WONDER · GROW</text>
+</svg>
