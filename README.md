@@ -6,3 +6,4 @@ Codevember is a creative coding challenge where you build small projects during 
 - Day 15: [Mirage — A Little Desert Illusion](https://gregpuzzles1.github.io/codevember-2026/15/)
 - Day 16: [From spore to more](https://gregpuzzles1.github.io/codevember-2026/16/)
 - Day 17: [Kelp Courier — A Dash Through the Kelp Forest](https://gregpuzzles1.github.io/codevember-2026/17/)
+- Day 18: [Pendulum — A 360° Newton's Cradle](https://gregpuzzles1.github.io/codevember-2026/18/)

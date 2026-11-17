@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1020">
+  <meta name="description" content="An interactive 3D Newton's cradle. Drag the balls, orbit 360° in every direction and watch momentum pass down the line.">
+  <title>Pendulum — Codevember Day 18</title>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gregpuzzles1.github.io/codevember-2026/18/">
+  <meta property="og:site_name" content="Codevember 2026">
+  <meta property="og:title" content="Pendulum — Codevember Day 18">
+  <meta property="og:description" content="An interactive 3D Newton's cradle. Drag the balls, orbit 360° in every direction and watch momentum pass down the line.">
+  <meta property="og:image" content="https://gregpuzzles1.github.io/codevember-2026/18/social-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A chrome Newton's cradle on a walnut base with one ball swung out, beside the title Pendulum.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pendulum — Codevember Day 18">
+  <meta name="twitter:description" content="An interactive 3D Newton's cradle. Drag the balls, orbit 360° in every direction and watch momentum pass down the line.">
+  <meta name="twitter:image" content="https://gregpuzzles1.github.io/codevember-2026/18/social-preview.png">
+  <meta name="twitter:image:alt" content="A chrome Newton's cradle on a walnut base with one ball swung out, beside the title Pendulum.">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <main class="stage" id="stage">
+    <div id="scene" role="img" aria-label="A 3D Newton's cradle. Drag a ball to lift it, drag the background to orbit in any direction, scroll or pinch to zoom."></div>
+
+    <header class="title">
+      <span class="eyebrow">Codevember · Day 18</span>
+      <h1>Pendulum</h1>
+      <p class="hint" id="hint">Drag a ball to lift it &middot; drag the space around it to orbit &middot; scroll to zoom</p>
+    </header>
+
+    <button class="panel-toggle" id="panelToggle" type="button" aria-expanded="true" aria-controls="panel">Controls</button>
+
+    <section class="panel" id="panel" aria-label="Cradle controls">
+      <div class="group">
+        <span class="group-label">Launch</span>
+        <div class="row">
+          <button type="button" data-lift="1">1 ball</button>
+          <button type="button" data-lift="2">2 balls</button>
+          <button type="button" data-lift="3">3 balls</button>
+          <button type="button" id="stop">Stop</button>
+        </div>
+      </div>
+
+      <div class="group">
+        <span class="group-label">View</span>
+        <div class="row">
+          <button type="button" data-view="front">Front</button>
+          <button type="button" data-view="side">Side</button>
+          <button type="button" data-view="back">Back</button>
+          <button type="button" data-view="top">Top</button>
+          <button type="button" data-view="bottom">Bottom</button>
+          <button type="button" data-view="iso">3/4</button>
+          <button type="button" id="orbit" aria-pressed="false">Auto-orbit</button>
+        </div>
+      </div>
+
+      <div class="group sliders">
+        <label>
+          <span class="group-label">Balls <b id="countOut">5</b></span>
+          <input id="count" type="range" min="3" max="9" step="1" value="5">
+        </label>
+        <label>
+          <span class="group-label">Speed <b id="speedOut">1.0×</b></span>
+          <input id="speed" type="range" min="0.1" max="1.6" step="0.05" value="1">
+        </label>
+      </div>
+
+      <div class="group">
+        <span class="group-label">Options</span>
+        <div class="row">
+          <button type="button" id="finish">Chrome</button>
+          <button type="button" id="friction" aria-pressed="false">Friction: off</button>
+          <button type="button" id="pause" aria-pressed="false">Pause</button>
+          <button type="button" id="sound" aria-pressed="true">Sound: on</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
