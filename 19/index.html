@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#1b1410">
+  <meta name="description" content="Carve a canyon with rain. Tap the clouds to make it rain, then timelapse decades and centuries as water erodes a Colorado Plateau landscape, seen from an orbiting drone.">
+  <title>Erosion — Codevember Day 19</title>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gregpuzzles1.github.io/codevember-2026/19/">
+  <meta property="og:site_name" content="Codevember 2026">
+  <meta property="og:title" content="Erosion — Codevember Day 19">
+  <meta property="og:description" content="Tap the clouds to make it rain and watch centuries of erosion carve a canyon in 3D, from an orbiting drone.">
+  <meta property="og:image" content="https://gregpuzzles1.github.io/codevember-2026/19/social-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A layered red-rock canyon with a river, joshua trees and a raincloud, beside the title Erosion.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Erosion — Codevember Day 19">
+  <meta name="twitter:description" content="Tap the clouds to make it rain and watch centuries of erosion carve a canyon in 3D, from an orbiting drone.">
+  <meta name="twitter:image" content="https://gregpuzzles1.github.io/codevember-2026/19/social-preview.png">
+  <meta name="twitter:image:alt" content="A layered red-rock canyon with a river, joshua trees and a raincloud, beside the title Erosion.">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.187.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.187.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <main class="stage" id="stage">
+    <div id="scene" role="img" aria-label="A 3D canyon landscape seen from an orbiting drone. Tap a cloud to start or stop rain, drag a cloud to paint rain across the land, drag the sky to look around, scroll or pinch to zoom."></div>
+
+    <header class="title">
+      <span class="eyebrow">Codevember &middot; Day 19</span>
+      <h1>Erosion</h1>
+      <p class="clock" aria-live="off"><span id="year">Year 0</span><small id="era">Colorado Plateau</small></p>
+      <p class="hint" id="hint">Tap a cloud to start or stop rain &middot; drag a cloud to paint rain across the land &middot; drag the sky to look around</p>
+    </header>
+
+    <aside class="readout" id="readout" aria-label="Erosion statistics">
+      <div><b id="statCut">0.00</b><span>km&sup3; carved away</span></div>
+      <div><b id="statFill">0.00</b><span>km&sup3; deposited</span></div>
+      <div><b id="statRain">0</b><span>clouds raining</span></div>
+    </aside>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+    <button class="panel-toggle" id="panelToggle" type="button" aria-expanded="true" aria-controls="panel">Controls</button>
+
+    <section class="panel" id="panel" aria-label="Erosion controls">
+      <div class="group">
+        <span class="group-label">Timelapse</span>
+        <div class="row" role="group" aria-label="Timelapse speed">
+          <button type="button" data-speed="0" aria-pressed="false">Pause</button>
+          <button type="button" data-speed="1" aria-pressed="false">Years</button>
+          <button type="button" data-speed="10" aria-pressed="true">Decades</button>
+          <button type="button" data-speed="100" aria-pressed="false">Centuries</button>
+          <button type="button" data-speed="1000" aria-pressed="false">Millennia</button>
+        </div>
+      </div>
+
+      <div class="group">
+        <span class="group-label">Weather</span>
+        <div class="row">
+          <button type="button" id="addCloud">+ Cloud</button>
+          <button type="button" id="rainAll">Rain on all</button>
+          <button type="button" id="clearSky">Clear skies</button>
+        </div>
+      </div>
+
+      <div class="group sliders">
+        <label>
+          <span class="group-label">Rainfall <b id="rainOut">1.0&times;</b></span>
+          <input id="rainfall" type="range" min="0.4" max="3" step="0.1" value="1">
+        </label>
+        <label>
+          <span class="group-label">Sun <b id="sunOut">Morning</b></span>
+          <input id="sun" type="range" min="0.05" max="0.95" step="0.01" value="0.3">
+        </label>
+      </div>
+
+      <div class="group">
+        <span class="group-label">Drone</span>
+        <div class="row">
+          <button type="button" data-view="overview">Overview</button>
+          <button type="button" data-view="top">Top-down</button>
+          <button type="button" data-view="canyon">Canyon</button>
+          <button type="button" data-view="low">Low pass</button>
+          <button type="button" id="orbit" aria-pressed="true">Orbit: on</button>
+        </div>
+      </div>
+
+      <div class="group">
+        <span class="group-label">Landscape</span>
+        <div class="row">
+          <button type="button" id="erosionMap" aria-pressed="false">Erosion map</button>
+          <button type="button" id="compare">Hold: before</button>
+          <button type="button" id="reset">Reset</button>
+          <button type="button" id="newLand">New land</button>
+          <button type="button" id="sound" aria-pressed="true">Sound: on</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
