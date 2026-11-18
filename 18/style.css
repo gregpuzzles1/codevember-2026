@@ -149,9 +149,40 @@ input[type="range"] { width: 100%; accent-color: var(--gold); cursor: pointer; }
   .sliders label { flex: 1; min-width: 0; }
 }
 
+/* Grab handle hinting that the panel can be swiped down (touch layouts only). */
+@media (max-width: 720px), (orientation: landscape) and (max-height: 500px) and (pointer: coarse) {
+  .panel { overscroll-behavior: contain; }
+  .panel::before {
+    content: "";
+    flex: 0 0 100%;
+    height: 4px;
+    margin-bottom: -4px;
+    background: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)) center / 40px 4px no-repeat;
+  }
+  .panel.dragging { transition: none; }
+}
+
 @media (max-height: 520px) and (min-width: 721px) {
   .panel { padding: 8px 14px; gap: 8px 18px; }
   .hint { display: none; }
+}
+
+/* Phones in landscape: wider than 720px but very short, so use the collapsible panel. */
+@media (orientation: landscape) and (max-height: 500px) and (pointer: coarse) {
+  .stage { min-height: 0; }
+  .panel-toggle { display: block; }
+  .panel {
+    gap: 8px 16px;
+    padding: 8px 12px;
+    justify-content: flex-start;
+    max-height: calc(var(--app-h, 100svh) * 0.62 - var(--browser-bar, 0px));
+    overflow-y: auto;
+  }
+  .panel.collapsed { transform: translate(-50%, calc(100% + 24px)); opacity: 0; pointer-events: none; }
+  .group { align-items: flex-start; gap: 4px; }
+  .hint { display: none; }
+  h1 { font-size: 1.8rem; }
+  button { padding: 6px 10px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

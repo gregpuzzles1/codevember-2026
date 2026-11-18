@@ -650,12 +650,45 @@ $('#speed').addEventListener('input', e => {
 
 const panel = $('#panel');
 const toggle = $('#panelToggle');
-toggle.addEventListener('click', () => {
-  const collapsed = panel.classList.toggle('collapsed');
+function setPanelCollapsed(collapsed) {
+  panel.classList.toggle('collapsed', collapsed);
   toggle.setAttribute('aria-expanded', String(!collapsed));
   resize();
-});
-if (window.matchMedia('(max-width: 720px)').matches) {
+}
+toggle.addEventListener('click', () => setPanelCollapsed(!panel.classList.contains('collapsed')));
+
+// Swipe the panel down to hide it (only when it is scrolled to the top, and not while using a slider).
+{
+  let startY = null;
+  let dy = 0;
+  const reset = () => {
+    startY = null;
+    dy = 0;
+    panel.classList.remove('dragging');
+    panel.style.transform = '';
+  };
+  panel.addEventListener('touchstart', e => {
+    const canSwipe = getComputedStyle(toggle).display !== 'none';
+    if (!canSwipe || e.touches.length !== 1 || e.target.closest('input') || panel.scrollTop > 0) return;
+    startY = e.touches[0].clientY;
+    dy = 0;
+  }, { passive: true });
+  panel.addEventListener('touchmove', e => {
+    if (startY === null) return;
+    dy = e.touches[0].clientY - startY;
+    if (dy <= 0) { if (dy < -4) reset(); return; }
+    e.preventDefault();
+    panel.classList.add('dragging');
+    panel.style.transform = `translate(-50%, ${dy}px)`;
+  }, { passive: false });
+  panel.addEventListener('touchend', () => {
+    const shouldClose = startY !== null && dy > 60;
+    reset();
+    if (shouldClose) setPanelCollapsed(true);
+  });
+  panel.addEventListener('touchcancel', reset);
+}
+if (window.matchMedia('(max-width: 720px), (orientation: landscape) and (max-height: 500px) and (pointer: coarse)').matches) {
   panel.classList.add('collapsed');
   toggle.setAttribute('aria-expanded', 'false');
 }
