@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#34242a">
+  <meta name="description" content="Explore a sandstone canyon. Touch the stone and hear the canyon answer. An interactive Codevember piece about echo.">
+  <title>Canyon Chimes · Codevember Echo</title>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gregpuzzles1.github.io/codevember-2026/22/">
+  <meta property="og:site_name" content="Codevember 2026">
+  <meta property="og:title" content="Canyon Chimes — Codevember Day 22">
+  <meta property="og:description" content="Explore a sandstone canyon. Touch the stone and hear the canyon answer. An interactive Codevember piece about echo.">
+  <meta property="og:image" content="https://gregpuzzles1.github.io/codevember-2026/22/social-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A sunlit red sandstone canyon with ripples spreading across the walls, beside the title Canyon Chimes.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Canyon Chimes — Codevember Day 22">
+  <meta name="twitter:description" content="Explore a sandstone canyon. Touch the stone and hear the canyon answer. An interactive Codevember piece about echo.">
+  <meta name="twitter:image" content="https://gregpuzzles1.github.io/codevember-2026/22/social-preview.png">
+  <meta name="twitter:image:alt" content="A sunlit red sandstone canyon with ripples spreading across the walls, beside the title Canyon Chimes.">
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+</head>
+<body>
+  <svg class="icon-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5Zm4 4a4 4 0 0 1 0 6m2.5-8.5a7.5 7.5 0 0 1 0 11"/></symbol>
+    <symbol id="i-muted" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4V5Zm5 5 5 5m0-5-5 5"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 11a8 8 0 1 1 2 6m-2-6V5m0 6h6"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.6 9a2.4 2.4 0 1 1 4.3 1.5c-1.1 1.1-1.9 1.2-1.9 2.7M12 16.5h.01"/></symbol>
+    <symbol id="i-echo" viewBox="0 0 28 28"><circle cx="14" cy="14" r="1.5" fill="currentColor" stroke="none"/><circle cx="14" cy="14" r="5.2"/><circle cx="14" cy="14" r="9.3" opacity=".6"/><circle cx="14" cy="14" r="13.2" opacity=".32"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24"><path d="m6 14 6-6 6 6"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="m6 10 6 6 6-6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24"><path d="m14 6-6 6 6 6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path d="m10 6 6 6-6 6"/></symbol>
+    <symbol id="i-rise" viewBox="0 0 24 24"><path d="M7 18h10m-9-7 4-4 4 4m-8 4 4-4 4 4"/></symbol>
+    <symbol id="i-fall" viewBox="0 0 24 24"><path d="M7 6h10m-9 3 4 4 4-4m-8 4 4 4 4-4"/></symbol>
+  </svg>
+  <main class="experience">
+    <div id="stage" class="stage" tabindex="0" role="region" aria-label="Canyon explorer" aria-describedby="stage-instructions" hidden></div>
+    <p id="stage-instructions" class="sr-only">Move with W A S D or the arrow keys. Look with I J K L or Shift plus the arrow keys. Descend with Q and rise with E. Aim the center marker at a wall and press Enter or Space to chime. Tab leaves the explorer.</p>
+    <div class="vignette" aria-hidden="true"></div>
+    <header class="masthead">
+      <div class="edition"><svg class="icon" aria-hidden="true"><use href="#i-echo"/></svg><span>CODEVEMBER</span><span class="divider"></span><span class="theme">ECHO</span></div>
+      <h1>Canyon<br>Chimes</h1>
+      <p>Touch the stone. Hear the canyon answer.</p>
+    </header>
+    <nav class="tools" aria-label="Experience controls">
+      <button class="glass tool-button" id="reset" aria-label="Reset view" title="Reset view" disabled><svg class="icon" aria-hidden="true"><use href="#i-reset"/></svg><span>Reset view</span></button>
+      <button class="glass tool-button" id="help-toggle" aria-expanded="false" aria-controls="help"><svg class="icon" aria-hidden="true"><use href="#i-help"/></svg><span>Controls</span></button>
+    </nav>
+    <section class="glass help" id="help" aria-labelledby="help-title" hidden>
+      <h2 id="help-title">Explore the canyon</h2>
+      <dl class="bindings">
+        <div><dt>Look</dt><dd>Drag, <kbd>I</kbd> <kbd>J</kbd> <kbd>K</kbd> <kbd>L</kbd>, or <kbd>Shift</kbd> + arrows</dd></div>
+        <div><dt>Move</dt><dd><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd>, arrows, or touch pad</dd></div>
+        <div><dt>Change height</dt><dd><kbd>Q</kbd> down · <kbd>E</kbd> up, or touch buttons</dd></div>
+        <div><dt>Chime</dt><dd>Tap a wall or aim and press <kbd>Enter</kbd> / <kbd>Space</kbd></dd></div>
+      </dl>
+      <div class="preferences">
+        <button id="aim-button" class="secondary" disabled>Use keyboard aim</button>
+        <label><input id="reduced-motion" type="checkbox"> Reduce motion</label>
+        <label id="show-controls-option"><input id="show-controls" type="checkbox"> Show movement pad</label>
+      </div>
+      <div class="sample-area">
+        <h3>Canyon chimes</h3>
+        <div class="samples" role="group" aria-label="Play a sample canyon chime">
+          <button class="secondary" data-chime="0">Low ledge</button>
+          <button class="secondary" data-chime="1">Middle wall</button>
+          <button class="secondary" data-chime="2">High rim</button>
+        </div>
+      </div>
+    </section>
+    <div class="reticle" id="reticle" aria-hidden="true" hidden><span></span></div>
+    <section class="glass fallback" id="fallback" aria-labelledby="fallback-title" hidden>
+      <h2 id="fallback-title">Explore by sound</h2>
+      <p id="fallback-message">WebGL 2 is unavailable in this browser. You can still play the canyon chimes below.</p>
+      <div class="samples" role="group" aria-label="Play a canyon chime">
+        <button class="secondary" data-chime="0">Low ledge</button>
+        <button class="secondary" data-chime="1">Middle wall</button>
+        <button class="secondary" data-chime="2">High rim</button>
+      </div>
+    </section>
+    <div class="activity" id="activity">
+      <span class="pulse-icon"><svg class="icon" aria-hidden="true"><use href="#i-echo"/></svg></span>
+      <span id="activity-text">Touch the canyon walls to make them sing.</span>
+    </div>
+    <p class="sr-only" id="status" role="status"></p>
+    <div class="glass audio-dock" role="group" aria-label="Sound controls">
+      <button id="sound" aria-pressed="false" aria-label="Sound" title="Toggle sound"><svg class="icon" aria-hidden="true"><use id="sound-icon" href="#i-muted"/></svg><span id="sound-text" aria-hidden="true">Sound off</span></button>
+      <label class="sr-only" for="volume">Volume</label>
+      <input id="volume" type="range" min="0" max="100" value="64" title="Volume">
+    </div>
+    <div class="compass" id="compass" aria-hidden="true" hidden>
+      <div class="dial"><i></i><span>N</span></div><div id="bearing">000°</div>
+    </div>
+    <div class="movement" id="movement" role="group" aria-label="Movement pad" hidden>
+      <div class="planar">
+        <button class="glass forward" data-move="forward" aria-label="Move forward"><svg class="icon" aria-hidden="true"><use href="#i-up"/></svg></button>
+        <button class="glass left" data-move="left" aria-label="Move left"><svg class="icon" aria-hidden="true"><use href="#i-left"/></svg></button>
+        <button class="glass back" data-move="back" aria-label="Move backward"><svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></button>
+        <button class="glass right" data-move="right" aria-label="Move right"><svg class="icon" aria-hidden="true"><use href="#i-right"/></svg></button>
+      </div>
+      <div class="vertical">
+        <button class="glass" data-move="up" aria-label="Move up"><svg class="icon" aria-hidden="true"><use href="#i-rise"/></svg></button>
+        <button class="glass" data-move="down" aria-label="Move down"><svg class="icon" aria-hidden="true"><use href="#i-fall"/></svg></button>
+      </div>
+    </div>
+    <noscript><p class="noscript glass">Enable JavaScript to explore Canyon Chimes.</p></noscript>
+  </main>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
