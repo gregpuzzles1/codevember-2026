@@ -23,6 +23,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: 22/package-lock.json
+      - name: Build Day 22 (Vite) and publish the build in place of the source
+        working-directory: 22
+        run: |
+          npm ci
+          npm run build
+          cp -r dist/. .
+          rm -rf dist node_modules src public package.json package-lock.json vite.config.js .gitignore
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
