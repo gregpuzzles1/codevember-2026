@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101715">
+  <meta name="description" content="Wake a miniature mountain, one underground magma chamber at a time. An interactive 3D experience for Codevember Day 23.">
+  <title>Magma Pulse · Codevember Day 23</title>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gregpuzzles1.github.io/codevember-2026/23/">
+  <meta property="og:site_name" content="Codevember 2026">
+  <meta property="og:title" content="Magma Pulse — Codevember Day 23">
+  <meta property="og:description" content="Wake a miniature mountain, one underground magma chamber at a time.">
+  <meta property="og:image" content="https://gregpuzzles1.github.io/codevember-2026/23/social-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A miniature mountain cutaway with three glowing magma chambers, beside the title Magma Pulse.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Magma Pulse — Codevember Day 23">
+  <meta name="twitter:description" content="Wake a miniature mountain, one underground magma chamber at a time.">
+  <meta name="twitter:image" content="https://gregpuzzles1.github.io/codevember-2026/23/social-preview.png">
+  <meta name="twitter:image:alt" content="A miniature mountain cutaway with three glowing magma chambers, beside the title Magma Pulse.">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="experience">
+    <header class="masthead">
+      <p class="edition"><span class="edition-mark" aria-hidden="true"></span>Codevember <span class="edition-divider" aria-hidden="true"></span> Day 23</p>
+      <button class="control sound" id="sound" type="button" aria-label="Sound" aria-pressed="false" hidden>
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M11 5 6 9H3v6h3l5 4z"/><path class="muted-icon" d="m15 10 5 5m0-5-5 5"/><path class="playing-icon" d="M15 9a4 4 0 0 1 0 6m2-9a8 8 0 0 1 0 12"/>
+        </svg>
+        <span id="sound-state" aria-hidden="true">Sound off</span>
+      </button>
+    </header>
+
+    <section class="stage" aria-labelledby="title">
+      <div id="scene" class="scene" role="group" aria-label="3D mountain" aria-describedby="orbit-help" tabindex="0"></div>
+      <div class="intro">
+        <h1 id="title">Magma <span>Pulse</span></h1>
+        <p id="instruction">Tap the glow.</p>
+      </div>
+      <button id="chamber" class="chamber" type="button" hidden></button>
+      <div class="stage-actions">
+        <button class="control action" id="find" type="button" hidden>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><circle cx="12" cy="12" r="6"/><path d="M12 2v5m0 10v5M2 12h5m10 0h5"/></svg>
+          Find the glow
+        </button>
+        <button class="control action" id="replay" type="button" hidden>
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a8 8 0 1 1 2 6M4 5v6h6"/></svg>
+          Replay
+        </button>
+      </div>
+      <p id="fallback" class="fallback" hidden>This experience requires WebGL 2.</p>
+      <p id="status" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
+      <noscript><p class="fallback">Enable JavaScript to explore the mountain.</p></noscript>
+    </section>
+
+    <footer class="foot" id="foot" hidden>
+      <p class="orbit-help" id="orbit-help">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(-25 12 12)"/><circle cx="12" cy="12" r="5"/><circle class="orbit-dot" cx="20.5" cy="8" r="1.5" stroke="none"/></svg>
+        Drag to orbit <span class="key-hint">· Arrow keys when focused</span>
+      </p>
+      <ol class="progress" aria-label="Chamber progress">
+        <li class="step" aria-label="First chamber, ready"></li>
+        <li class="step" aria-label="Second chamber, hidden"></li>
+        <li class="step" aria-label="Heart of the mountain, hidden"></li>
+      </ol>
+    </footer>
+  </main>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
