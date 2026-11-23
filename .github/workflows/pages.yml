@@ -34,7 +34,7 @@ jobs:
           npm ci
           npm run build
           cp -r dist/. .
-          rm -rf dist node_modules src public package.json package-lock.json vite.config.js .gitignore
+          rm -rf dist node_modules src package.json package-lock.json vite.config.js .gitignore
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
