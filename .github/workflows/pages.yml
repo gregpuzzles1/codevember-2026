@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -22,12 +22,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/configure-pages@v5
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: 22/package-lock.json
+      - name: Update calendar and README
+        run: |
+          node --test scripts/update-days.test.cjs
+          node scripts/update-days.cjs
+          if ! git diff --quiet -- index.html README.md; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add index.html README.md
+            git commit -m "Update Codevember calendar"
+            git push origin HEAD:main
+          fi
       - name: Build Day 22 (Vite) and publish the build in place of the source
         working-directory: 22
         run: |
