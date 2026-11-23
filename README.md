@@ -8,4 +8,6 @@ Codevember is a creative coding challenge where you build small projects during 
 - Day 17: [Kelp Courier — A Dash Through the Kelp Forest](https://gregpuzzles1.github.io/codevember-2026/17/)
 - Day 18: [Pendulum — A 360° Newton's Cradle](https://gregpuzzles1.github.io/codevember-2026/18/)
 - Day 19: [Erosion — Carve a Canyon with Rain](https://gregpuzzles1.github.io/codevember-2026/19/)
+- Day 20: [A Little Light Within — A Tiny World Inside a Cocoon](https://gregpuzzles1.github.io/codevember-2026/20/)
 - Day 22: [Canyon Chimes — Touch the Stone, Hear the Canyon Answer](https://gregpuzzles1.github.io/codevember-2026/22/)
+- Day 23: [Magma Pulse — Follow the Pulse Through the Mountain](https://gregpuzzles1.github.io/codevember-2026/23/)

@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171714">
+  <meta name="description" content="Thirty days of creative coding for Codevember 2026. Explore the daily prompts and finished projects.">
+  <title>Codevember 2026 — Thirty Days of Making</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f2eddf;
+      --muted: #aaa597;
+      --paper: #171714;
+      --card: #22221e;
+      --line: #393831;
+      --accent: #c1e879;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-width: 320px;
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 82% 5%, rgb(193 232 121 / 9%), transparent 32rem),
+        var(--paper);
+      color: var(--ink);
+      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    }
+
+    main {
+      width: min(1200px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: clamp(48px, 9vw, 108px) 0 64px;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 800px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 8vw, 6.8rem);
+      font-weight: 400;
+      letter-spacing: -0.065em;
+      line-height: 0.95;
+    }
+
+    .intro {
+      max-width: 590px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      line-height: 1.65;
+    }
+
+    .day-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+      gap: 16px;
+      margin: 54px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .day-card {
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--card);
+      transition: border-color 180ms ease, transform 180ms ease;
+    }
+
+    .day-card:has(a:hover),
+    .day-card:has(a:focus-visible) {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    .day-card a {
+      display: block;
+      height: 100%;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .day-card a:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: -4px;
+    }
+
+    .preview,
+    .prompt-art {
+      display: block;
+      width: 100%;
+      aspect-ratio: 1.9;
+    }
+
+    .preview {
+      object-fit: cover;
+      background: #302f28;
+    }
+
+    .prompt-art {
+      background:
+        radial-gradient(ellipse at 72% 35%, rgb(193 232 121 / 18%), transparent 28%),
+        linear-gradient(135deg, #34352a, #24241f 65%);
+    }
+
+    .day-info {
+      display: flex;
+      min-height: 90px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 18px;
+    }
+
+    .day-number {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .day-word {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.25rem, 2.4vw, 1.65rem);
+      font-weight: 400;
+      letter-spacing: -0.025em;
+    }
+
+    .status {
+      flex: 0 0 auto;
+      color: var(--muted);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .complete .status {
+      color: var(--accent);
+    }
+
+    footer {
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">November · 30 daily prompts</p>
+      <h1>Codevember<br>2026</h1>
+      <p class="intro">A month of small experiments, curious ideas, and creative code. Pick a day to explore a finished project, or find the next prompt waiting to be made.</p>
+    </header>
+
+    <ol class="day-grid" aria-label="Codevember daily prompts">
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 01</span><h2 class="day-word">Fold</h2></div><span class="status">Prompt</span></div>
+      </li>
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 02</span><h2 class="day-word">Shatter</h2></div><span class="status">Prompt</span></div>
+      </li>
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 03</span><h2 class="day-word">Melt</h2></div><span class="status">Prompt</span></div>
+      </li>
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 04</span><h2 class="day-word">Tangle</h2></div><span class="status">Prompt</span></div>
+      </li>
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 05</span><h2 class="day-word">Moss</h2></div><span class="status">Prompt</span></div>
+      </li>
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 06</span><h2 class="day-word">Orrery</h2></div><span class="status">Prompt</span></div>
+      </li>
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 07</span><h2 class="day-word">Hollow</h2></div><span class="status">Prompt</span></div>
+      </li>
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 08</span><h2 class="day-word">Tesseract</h2></div><span class="status">Prompt</span></div>
+      </li>
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 09</span><h2 class="day-word">Membrane</h2></div><span class="status">Prompt</span></div>
+      </li>
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 10</span><h2 class="day-word">Caustic</h2></div><span class="status">Prompt</span></div>
+      </li>
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 11</span><h2 class="day-word">Rust</h2></div><span class="status">Prompt</span></div>
+      </li>
+      <li class="day-card complete">
+        <a href="./12/" aria-label="Day 12: Feather — open project">
+          <img class="preview" src="./12/social-preview.png" alt="" loading="lazy" decoding="async">
+          <div class="day-info"><div><span class="day-number">Day 12</span><h2 class="day-word">Feather</h2></div><span class="status">Explore ↗</span></div>
+        </a>
+      </li>
+      <li class="day-card complete">
+        <a href="./13/" aria-label="Day 13: Labyrinth — open project">
+          <img class="preview" src="./13/social-preview.jpg" alt="" loading="lazy" decoding="async">
+          <div class="day-info"><div><span class="day-number">Day 13</span><h2 class="day-word">Labyrinth</h2></div><span class="status">Explore ↗</span></div>
+        </a>
+      </li>
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 14</span><h2 class="day-word">Tension</h2></div><span class="status">Prompt</span></div>
+      </li>
+      <li class="day-card complete">
+        <a href="./15/" aria-label="Day 15: Mirage — open project">
+          <img class="preview" src="./15/social-preview.png" alt="" loading="lazy" decoding="async">
+          <div class="day-info"><div><span class="day-number">Day 15</span><h2 class="day-word">Mirage</h2></div><span class="status">Explore ↗</span></div>
+        </a>
+      </li>
+      <li class="day-card complete">
+        <a href="./16/" aria-label="Day 16: Spore — open project">
+          <img class="preview" src="./16/social-preview.png" alt="" loading="lazy" decoding="async">
+          <div class="day-info"><div><span class="day-number">Day 16</span><h2 class="day-word">Spore</h2></div><span class="status">Explore ↗</span></div>
+        </a>
+      </li>
+      <li class="day-card complete">
+        <a href="./17/" aria-label="Day 17: Kelp — open project">
+          <img class="preview" src="./17/social-preview.png" alt="" loading="lazy" decoding="async">
+          <div class="day-info"><div><span class="day-number">Day 17</span><h2 class="day-word">Kelp</h2></div><span class="status">Explore ↗</span></div>
+        </a>
+      </li>
+      <li class="day-card complete">
+        <a href="./18/" aria-label="Day 18: Pendulum — open project">
+          <img class="preview" src="./18/social-preview.png" alt="" loading="lazy" decoding="async">
+          <div class="day-info"><div><span class="day-number">Day 18</span><h2 class="day-word">Pendulum</h2></div><span class="status">Explore ↗</span></div>
+        </a>
+      </li>
+      <li class="day-card complete">
+        <a href="./19/" aria-label="Day 19: Erosion — open project">
+          <img class="preview" src="./19/social-preview.png" alt="" loading="lazy" decoding="async">
+          <div class="day-info"><div><span class="day-number">Day 19</span><h2 class="day-word">Erosion</h2></div><span class="status">Explore ↗</span></div>
+        </a>
+      </li>
+      <li class="day-card complete">
+        <a href="./20/" aria-label="Day 20: Cocoon — open project">
+          <img class="preview" src="./20/social-preview.png" alt="" loading="lazy" decoding="async">
+          <div class="day-info"><div><span class="day-number">Day 20</span><h2 class="day-word">Cocoon</h2></div><span class="status">Explore ↗</span></div>
+        </a>
+      </li>
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 21</span><h2 class="day-word">Bolt</h2></div><span class="status">Prompt</span></div>
+      </li>
+      <li class="day-card complete">
+        <a href="./22/" aria-label="Day 22: Echo — open project">
+          <img class="preview" src="./22/public/social-preview.png" alt="" loading="lazy" decoding="async">
+          <div class="day-info"><div><span class="day-number">Day 22</span><h2 class="day-word">Echo</h2></div><span class="status">Explore ↗</span></div>
+        </a>
+      </li>
+      <li class="day-card complete">
+        <a href="./23/" aria-label="Day 23: Magma — open project">
+          <img class="preview" src="./23/social-preview.png" alt="" loading="lazy" decoding="async">
+          <div class="day-info"><div><span class="day-number">Day 23</span><h2 class="day-word">Magma</h2></div><span class="status">Explore ↗</span></div>
+        </a>
+      </li>
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 24</span><h2 class="day-word">Nest</h2></div><span class="status">Prompt</span></div>
+      </li>
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 25</span><h2 class="day-word">Veil</h2></div><span class="status">Prompt</span></div>
+      </li>
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 26</span><h2 class="day-word">Anamorph</h2></div><span class="status">Prompt</span></div>
+      </li>
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 27</span><h2 class="day-word">Burrow</h2></div><span class="status">Prompt</span></div>
+      </li>
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 28</span><h2 class="day-word">Hive</h2></div><span class="status">Prompt</span></div>
+      </li>
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 29</span><h2 class="day-word">Portal</h2></div><span class="status">Prompt</span></div>
+      </li>
+      <li class="day-card">
+        <div class="prompt-art" aria-hidden="true"></div>
+        <div class="day-info"><div><span class="day-number">Day 30</span><h2 class="day-word">Dissolve</h2></div><span class="status">Prompt</span></div>
+      </li>
+    </ol>
+
+    <footer>Codevember 2026 · One idea for every day in November.</footer>
+  </main>
+</body>
+</html>
