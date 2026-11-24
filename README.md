@@ -12,6 +12,7 @@ Codevember is a creative coding challenge where you build small projects during 
 - Day 20: [A Little Light Within — A Tiny World Inside a Cocoon](https://gregpuzzles1.github.io/codevember-2026/20/)
 - Day 22: [Canyon Chimes — Touch the Stone, Hear the Canyon Answer](https://gregpuzzles1.github.io/codevember-2026/22/)
 - Day 23: [Magma Pulse — Follow the Pulse Through the Mountain](https://gregpuzzles1.github.io/codevember-2026/23/)
+- Day 24: [First Peck](https://gregpuzzles1.github.io/codevember-2026/24/)
 <!-- days:end -->
 
 ## Updating the calendar
