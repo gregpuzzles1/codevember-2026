@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#172a21">
+  <meta name="description" content="Explore an American robin’s spring nest in 3D and watch a chick make its first peck.">
+  <title>First Peck · Codevember 2026</title>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gregpuzzles1.github.io/codevember-2026/24/">
+  <meta property="og:site_name" content="Codevember 2026">
+  <meta property="og:title" content="First Peck — Codevember Day 24">
+  <meta property="og:description" content="Explore an American robin’s spring nest in 3D and watch a chick make its first peck.">
+  <meta property="og:image" content="https://gregpuzzles1.github.io/codevember-2026/24/social-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="An American robin perches beside a nest of blue eggs, next to the title First Peck.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="First Peck — Codevember Day 24">
+  <meta name="twitter:description" content="Explore an American robin’s spring nest in 3D and watch a chick make its first peck.">
+  <meta name="twitter:image" content="https://gregpuzzles1.github.io/codevember-2026/24/social-preview.png">
+  <meta name="twitter:image:alt" content="An American robin perches beside a nest of blue eggs, next to the title First Peck.">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main class="experience" id="experience">
+    <canvas class="canopy" id="canopy" aria-hidden="true"></canvas>
+    <canvas class="scene" id="scene" aria-hidden="true"></canvas>
+    <div class="shade" aria-hidden="true"></div>
+    <div class="egg-marker" id="egg-marker" hidden aria-hidden="true"><span></span></div>
+
+    <header class="intro">
+      <p class="edition"><span>CODEVEMBER 2026</span><span class="edition-line" aria-hidden="true"></span><span>DAY 24</span></p>
+      <h1>First <em>Peck</em></h1>
+      <p class="instruction">Tap the cracked egg to watch it hatch.</p>
+      <p class="sr-only" id="scene-description">An American robin keeps watch over three blue eggs in a spring nest. The egg nearest you has a small crack.</p>
+    </header>
+
+    <div class="actions" id="actions" hidden>
+      <button class="button primary" type="button" id="hatch" aria-describedby="scene-description">
+        <span class="icon icon-egg" aria-hidden="true"></span><span>Hatch egg</span>
+      </button>
+      <button class="button primary" type="button" id="replay" hidden>
+        <span class="icon icon-reset" aria-hidden="true"></span><span>Replay</span>
+      </button>
+    </div>
+
+    <footer class="toolbar" id="toolbar" hidden>
+      <p class="camera-hint">
+        <span class="icon icon-orbit" aria-hidden="true"></span>
+        <span class="mouse-hint">Drag to orbit <span aria-hidden="true">·</span> Scroll to zoom</span>
+        <span class="touch-hint">Drag to orbit <span aria-hidden="true">·</span> Pinch to zoom</span>
+        <span class="sr-only">Use arrow keys to orbit and plus or minus to zoom.</span>
+      </p>
+      <div class="view-controls" role="group" aria-label="View controls">
+        <button class="button secondary" type="button" id="reset"><span class="icon icon-reset" aria-hidden="true"></span>Reset view</button>
+        <button class="button secondary" type="button" id="motion"><span class="icon icon-pause" aria-hidden="true"></span><span id="motion-label">Pause motion</span></button>
+      </div>
+    </footer>
+
+    <p class="message" id="loading">Finding the nest…</p>
+    <section class="message fallback" id="fallback" aria-label="Scene description" hidden>
+      <h2>A spring morning in the canopy</h2>
+      <p>In the fork of a tree, an American robin watches over a woven nest with three blue eggs. The front egg rocks, its shell cracks, and a small piece falls into the nest. A tiny chick peeks out and makes one more peck.</p>
+    </section>
+    <noscript><style>#loading, .instruction { display: none; }</style><p class="message">A robin watches over three blue eggs. The front egg cracks, a piece falls away, and a chick peeks out.</p></noscript>
+    <p class="sr-only" role="status" aria-live="polite" aria-atomic="true" id="announcement"></p>
+  </main>
+  <script type="module" src="./main.js"></script>
+</body>
+</html>
