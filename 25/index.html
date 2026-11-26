@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#184267">
+  <meta name="description" content="Lift the veil and explore Utah’s Three Gossips in 3D. Codevember 2026, Day 25.">
+  <title>The Three Gossips</title>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gregpuzzles1.github.io/codevember-2026/25/">
+  <meta property="og:site_name" content="Codevember 2026">
+  <meta property="og:title" content="The Three Gossips — Codevember Day 25">
+  <meta property="og:description" content="Lift the veil and explore Utah’s Three Gossips in 3D.">
+  <meta property="og:image" content="https://gregpuzzles1.github.io/codevember-2026/25/social-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Three sandstone towers rise from a desert landscape under a blue sky, beneath the title The Three Gossips.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Three Gossips — Codevember Day 25">
+  <meta name="twitter:description" content="Lift the veil and explore Utah’s Three Gossips in 3D.">
+  <meta name="twitter:image" content="https://gregpuzzles1.github.io/codevember-2026/25/social-preview.png">
+  <meta name="twitter:image:alt" content="Three sandstone towers rise from a desert landscape under a blue sky, beneath the title The Three Gossips.">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+  <script type="importmap">
+    {"imports":{"three":"./vendor/three.module.min.js"}}
+  </script>
+  <script type="module" src="./main.js"></script>
+</head>
+<body>
+  <main id="experience">
+    <div id="scene" class="scene" role="region" aria-label="Interactive 3D view of the Three Gossips"
+         aria-describedby="scene-description" tabindex="0" hidden></div>
+    <p id="scene-description" class="visually-hidden" hidden>
+      Three sandstone towers share a rocky base. A tilted cap tops the left tower. Broad caps top the
+      middle and right towers, with a shorter shoulder between them. Drag or use the arrow keys to orbit.
+      Use the mouse wheel, pinch, or press plus and minus to zoom.
+    </p>
+    <figure id="fallback" class="fallback">
+      <img src="./three-gossips-reference.jpeg" alt="Three sunlit orange sandstone towers joined at the base against a clear blue sky.">
+      <figcaption id="fallback-description">
+        A tilted cap tops the left tower. The central tower has a blocky cap, and the right tower has
+        a rounded cap. A shorter shoulder stands between them.
+      </figcaption>
+    </figure>
+    <header class="heading"><h1>The Three Gossips</h1></header>
+    <div class="controls" id="controls" hidden>
+      <button id="veil-action" type="button">Tap or click the veil to reveal the Three Gossips.</button>
+    </div>
+    <p id="announcement" class="visually-hidden" role="status"></p>
+  </main>
+</body>
+</html>
