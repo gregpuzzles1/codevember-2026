@@ -1,0 +1,261 @@
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("./fonts/space-grotesk.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: dark;
+  font-family: "Space Grotesk", system-ui, sans-serif;
+  background: #080c15;
+  color: #f0f3fb;
+  --line: #29364d;
+  --quiet: #a9b8d2;
+  --accent: #a5caff;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  min-width: 0;
+  min-height: 100svh;
+  background: radial-gradient(ellipse at 50% 36%, #111a30 0%, #0a0f1c 51%, #080c15 82%);
+}
+
+.exhibit {
+  width: min(76rem, 100% - clamp(2rem, 8vw, 8rem));
+  margin: 0 auto;
+  padding: clamp(1.55rem, 5vh, 3.25rem) 0 max(1.2rem, env(safe-area-inset-bottom));
+}
+
+.exhibit-header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 0.95rem 2rem;
+  margin-bottom: clamp(1rem, 3.1vh, 1.75rem);
+}
+
+.edition {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .6rem;
+  color: #aabddd;
+  font-size: .8125rem;
+  font-weight: 550;
+  letter-spacing: .15em;
+  line-height: 1.35;
+  margin: 0 0 .7rem;
+  text-transform: uppercase;
+}
+
+.edition-mark {
+  width: .48rem;
+  height: .48rem;
+  border: 1px solid #9cc4ff;
+  transform: rotate(45deg);
+  margin: 0 .15rem;
+}
+
+.edition-separator { color: #778fba; }
+
+h1 {
+  color: #f3f5fd;
+  font-size: clamp(2.25rem, 5.7vw, 5.2rem);
+  font-weight: 550;
+  line-height: .99;
+  letter-spacing: -.075em;
+  margin: 0;
+}
+
+h1 span { color: #b4cdf7; }
+
+.instruction {
+  color: #bccbe3;
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  margin: 0 0 .22rem;
+  line-height: 1.4;
+}
+
+.stage {
+  position: relative;
+  display: grid;
+  isolation: isolate;
+  place-items: center;
+  width: 100%;
+  height: clamp(320px, 62vh, 660px);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: .8rem;
+  background:
+    radial-gradient(ellipse at 53% 52%, #1a2c50 0%, #121f38 28%, #0b1426 57%, #060a13 94%);
+  box-shadow: inset 0 0 5rem #03060e76, 0 1.5rem 3rem #0003;
+}
+
+.viewfinder {
+  position: absolute;
+  inset: clamp(.65rem, 1.8vw, 1.25rem);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.viewfinder i {
+  position: absolute;
+  width: .75rem;
+  height: .75rem;
+  border: 0 solid #91aae1;
+  opacity: .54;
+}
+
+.viewfinder i:nth-child(1) { top: 0; left: 0; border-width: 1px 0 0 1px; }
+.viewfinder i:nth-child(2) { top: 0; right: 0; border-width: 1px 1px 0 0; }
+.viewfinder i:nth-child(3) { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+.viewfinder i:nth-child(4) { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+
+.stage.is-ready {
+  cursor: grab;
+  touch-action: none;
+}
+
+.stage.is-dragging { cursor: grabbing; }
+
+.stage canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+.stage:focus-visible,
+.button:focus-visible {
+  outline: 2px solid #c1dbff;
+  outline-offset: 4px;
+}
+
+.stage:focus-visible .viewfinder i,
+.stage[data-aligned="true"] .viewfinder i { opacity: .9; }
+
+.fallback {
+  max-width: 34rem;
+  padding: 1.5rem;
+  text-align: center;
+  color: #bdcde8;
+  line-height: 1.55;
+}
+
+.fallback p { margin: .75rem 0 0; }
+.fallback-word {
+  color: #edf4ff;
+  font-size: clamp(1.6rem, 6vw, 4.25rem);
+  letter-spacing: .035em;
+}
+
+.console {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .6rem 1.25rem;
+  margin-top: clamp(.8rem, 2vh, 1.25rem);
+}
+
+.alignment {
+  display: flex;
+  gap: .55rem .8rem;
+  align-items: center;
+  padding-left: .12rem;
+  color: var(--quiet);
+}
+
+.alignment-label {
+  font-size: .875rem;
+  line-height: 1;
+}
+
+.meter {
+  display: flex;
+  gap: .19rem;
+  align-items: end;
+  height: .95rem;
+}
+
+.meter span {
+  width: .3rem;
+  height: var(--height, 30%);
+  background: #344760;
+  border-radius: 2px 2px 1px 1px;
+}
+
+.meter span:nth-child(2) { --height: 40%; }
+.meter span:nth-child(3) { --height: 50%; }
+.meter span:nth-child(4) { --height: 60%; }
+.meter span:nth-child(5) { --height: 70%; }
+.meter span:nth-child(6) { --height: 80%; }
+.meter span:nth-child(7) { --height: 90%; }
+.meter span:nth-child(8) { --height: 100%; }
+
+.meter span.lit { background: #81b2ff; box-shadow: 0 0 .45rem #74a7ff72; }
+.meter[data-full="true"] span.lit { background: #c8dfff; box-shadow: 0 0 .7rem #82b5ffc9; }
+
+.actions { display: flex; gap: .55rem; }
+.button {
+  min-height: 2.875rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  padding: .45rem .95rem;
+  border-radius: .43rem;
+  border: 1px solid #3a4b69;
+  font: 650 .9375rem/1 "Space Grotesk", system-ui, sans-serif;
+  cursor: pointer;
+}
+
+.button svg { width: 1.15rem; height: 1.15rem; flex: none; }
+.button-play { background: #101a2b; color: #d0dff8; min-width: 6.1rem; }
+.button-play:hover { background: #1a2a44; }
+.button-reveal { color: #081329; background: #a9cbff; border-color: #b4d2ff; min-width: 6.5rem; }
+.button-reveal:hover { background: #c6dcff; }
+.pause-icon, .is-playing .play-icon { display: none; }
+.is-playing .pause-icon { display: inline; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 660px) {
+  .exhibit-header { align-items: start; flex-direction: column; gap: .65rem; }
+  h1 { font-size: clamp(2.15rem, 9.5vw, 3.7rem); }
+  .stage { height: clamp(19rem, 112vw, 31rem); }
+}
+
+@media (max-width: 350px) {
+  .alignment { flex-direction: column-reverse; align-items: start; gap: .35rem; }
+  .button { padding-inline: .55rem; min-width: 4.75rem; }
+  .actions { gap: .4rem; }
+}
+
+@media (orientation: landscape) and (max-height: 540px) {
+  .exhibit { width: min(76rem, 100% - 4rem); padding-top: .7rem; padding-bottom: .65rem; }
+  .exhibit-header { flex-direction: row; align-items: end; margin-bottom: .55rem; }
+  .edition { margin-bottom: .35rem; }
+  h1 { font-size: clamp(1.8rem, 7.4vh, 3rem); }
+  .stage { height: max(10.5rem, calc(100svh - 9.1rem)); }
+  .console { margin-top: .5rem; }
+}
+
+@media (forced-colors: active) {
+  .meter span { background: GrayText; forced-color-adjust: none; }
+  .meter span.lit, .meter[data-full="true"] span.lit { background: Highlight; }
+}

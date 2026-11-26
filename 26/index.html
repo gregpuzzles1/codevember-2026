@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080c15">
+  <meta name="description" content="Orbit a cloud of fungal filaments in this interactive 3D optical illusion for Codevember 2026, Day 26.">
+  <title>Spore Alignment · Codevember 2026</title>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gregpuzzles1.github.io/codevember-2026/26/">
+  <meta property="og:site_name" content="Codevember 2026">
+  <meta property="og:title" content="Spore Alignment — Codevember Day 26">
+  <meta property="og:description" content="Orbit a cloud of fungal filaments in this interactive 3D optical illusion for Codevember 2026, Day 26.">
+  <meta property="og:image" content="https://gregpuzzles1.github.io/codevember-2026/26/social-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Pale fungal filaments and blue spores surround fragmented, partially aligned letters.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Spore Alignment — Codevember Day 26">
+  <meta name="twitter:description" content="Orbit a cloud of fungal filaments in this interactive 3D optical illusion for Codevember 2026, Day 26.">
+  <meta name="twitter:image" content="https://gregpuzzles1.github.io/codevember-2026/26/social-preview.png">
+  <meta name="twitter:image:alt" content="Pale fungal filaments and blue spores surround fragmented, partially aligned letters.">
+  <link rel="icon" href="./assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <main class="exhibit">
+    <header class="exhibit-header">
+      <div>
+        <p class="edition"><span class="edition-mark" aria-hidden="true"></span>Codevember 2026 <span class="edition-separator" aria-hidden="true">/</span> Day 26</p>
+        <h1>Spore <span>Alignment</span></h1>
+      </div>
+      <p class="instruction" id="instruction">Drag to find the word.</p>
+    </header>
+
+    <section class="stage" id="stage" aria-label="Interactive fungal cloud" aria-describedby="scene-help scene-description">
+      <div class="viewfinder" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+      <p class="sr-only" id="scene-help">Focus the exhibit and use the arrow keys to orbit. Reveal goes directly to the viewing angle.</p>
+      <p class="sr-only" id="scene-description">Pale, branching fungal filaments hang at different depths among blue spores. As you orbit, nearby fragments slide across your view faster than distant ones. From one viewpoint, the fixed fragments line up to spell ANAMORPH.</p>
+      <div class="fallback" id="fallback" hidden>
+        <strong class="fallback-word">ANAMORPH</strong>
+        <p>Pale fungal filaments fill a 3D cloud. Viewed from a single angle, the fragments overlap to spell this word.</p>
+      </div>
+      <noscript><div class="fallback"><strong class="fallback-word">ANAMORPH</strong><p>Pale fungal filaments fill a 3D cloud and spell this word from one viewpoint. Enable JavaScript to orbit the cloud.</p></div></noscript>
+      <p class="sr-only" id="announcement" role="status"></p>
+    </section>
+
+    <div class="console" id="console" hidden>
+      <div class="alignment">
+        <div class="meter" id="meter" role="meter" aria-label="Viewpoint alignment" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Away from the reveal angle">
+          <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+        </div>
+        <span class="alignment-label" aria-hidden="true">Alignment</span>
+      </div>
+      <div class="actions">
+        <button type="button" id="play" aria-label="Play guided orbit" class="button button-play">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path class="play-icon" d="m9 5 11 7-11 7z"></path><path class="pause-icon" d="M9 5v14m6-14v14"></path></svg>
+          <span id="play-label">Play</span>
+        </button>
+        <button type="button" id="reveal" class="button button-reveal">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-5.5 10-5.5S22 12 22 12s-3.6 5.5-10 5.5S2 12 2 12Z"></path><circle cx="12" cy="12" r="2.2"></circle></svg>
+          Reveal
+        </button>
+      </div>
+    </div>
+  </main>
+  <script type="module" src="./assets/app.js"></script>
+</body>
+</html>
