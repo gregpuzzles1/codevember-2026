@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#25271c">
+  <meta name="description" content="Follow a prairie dog burrow from the shortgrass prairie into a colorful network of tunnels and dens. A first-person Three.js tour for Codevember Day 27.">
+  <title>Beneath the Prairie | Codevember Day 27</title>
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gregpuzzles1.github.io/codevember-2026/27/">
+  <meta property="og:site_name" content="Codevember 2026">
+  <meta property="og:title" content="Beneath the Prairie — Codevember Day 27">
+  <meta property="og:description" content="Follow a prairie dog burrow from the shortgrass prairie into a colorful network of tunnels and dens. A first-person Three.js tour for Codevember Day 27.">
+  <meta property="og:image" content="https://gregpuzzles1.github.io/codevember-2026/27/social-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="A prairie dog stands beside its burrow in a sunny grassland, with the title Beneath the Prairie.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Beneath the Prairie — Codevember Day 27">
+  <meta name="twitter:description" content="Follow a prairie dog burrow from the shortgrass prairie into a colorful network of tunnels and dens. A first-person Three.js tour for Codevember Day 27.">
+  <meta name="twitter:image" content="https://gregpuzzles1.github.io/codevember-2026/27/social-preview.png">
+  <meta name="twitter:image:alt" content="A prairie dog stands beside its burrow in a sunny grassland, with the title Beneath the Prairie.">
+  <link rel="icon" href="./burrow.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main id="experience" data-mode="opening">
+    <div id="view" tabindex="0" role="region" aria-label="Interactive 3D viewpoint" aria-describedby="look-instructions">
+      <p id="look-instructions" class="sr-only">Drag or use the arrow keys to look around. Looking around pauses a moving tour. Press Space in this viewpoint to pause or resume.</p>
+    </div>
+    <div class="shade" aria-hidden="true"></div>
+    <header class="masthead">
+      <div class="imprint">
+        <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><circle cx="20" cy="20" r="19.25"/><path d="M7 21h5l3-3h10l3 3h5M13 21c0 5 3 8.5 7 8.5s7-3.5 7-8.5M20 18v11M15 13l1.8 2M25 13l-1.8 2M20 10v4"/></svg>
+        <span>Codevember 2026 <span class="imprint-divider">/</span> Day 27</span>
+      </div>
+      <button class="motion" id="motion" type="button" aria-pressed="false">
+        <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M2 10h3l2.4-5.5 4.1 11L14 10h4"/></svg>
+        <span>Reduce motion</span>
+      </button>
+    </header>
+    <section class="hero" id="hero" aria-labelledby="title">
+      <h1 id="title">Beneath<br><em>the Prairie</em></h1>
+      <p id="intro">Follow a prairie dog burrow into a hidden world of color.</p>
+      <button type="button" class="primary" id="enter" disabled>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2.5 11h4l3.2-3h4.6l3.2 3h4M7.5 11v2a4.5 4.5 0 0 0 9 0v-2M12 12v5.5"/></svg>
+        <span>Enter the burrow</span>
+      </button>
+    </section>
+    <section id="chapter" class="chapter" aria-labelledby="stop-name" hidden>
+      <p class="location" id="location"></p>
+      <h2 id="stop-name"></h2>
+      <p class="description" id="description"></p>
+      <p class="manual-hint" id="manual-hint" hidden>Use Previous or Next to move between stops.</p>
+      <button type="button" class="primary" id="replay" hidden>
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 11a8 8 0 1 1 2 6.5M4 5v6h6"/></svg>
+        Replay tour
+      </button>
+    </section>
+    <nav class="controls" id="controls" aria-label="Tour controls" hidden>
+      <button type="button" class="step" id="previous" aria-label="Previous stop" title="Previous stop">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 6v12M18 7l-8 5 8 5z"/></svg>
+        <span class="step-label" aria-hidden="true">Previous</span>
+      </button>
+      <button type="button" class="play" id="play">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path id="play-icon" d="M9 6v12m6-12v12"/></svg>
+        <span id="play-label">Pause tour</span>
+      </button>
+      <button type="button" class="step" id="next" aria-label="Next stop" title="Next stop">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 6v12M6 7l8 5-8 5z"/></svg>
+        <span class="step-label" aria-hidden="true">Next</span>
+      </button>
+    </nav>
+    <div class="guide" aria-hidden="true">
+      <div class="progress" id="progress" hidden></div>
+      <span id="guide-label"><svg viewBox="0 0 20 20" fill="none"><path d="M10 2v16M2 10h16M7 5l3-3 3 3M7 15l3 3 3-3M5 7l-3 3 3 3M15 7l3 3-3 3"/></svg><span class="pointer-verb">Drag</span> to look around</span>
+    </div>
+    <p id="announcement" class="sr-only" role="status" aria-atomic="true"></p>
+    <section id="fallback" class="fallback" hidden aria-label="Text tour">
+      <h2>Explore the burrow in text</h2>
+      <ol id="fallback-stops"></ol>
+    </section>
+    <noscript><p class="no-script">Enable JavaScript and WebGL to enter the burrow.</p></noscript>
+  </main>
+  <script type="module" src="./tour.js"></script>
+</body>
+</html>
