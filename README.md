@@ -15,6 +15,7 @@ Codevember is a creative coding challenge where you build small projects during 
 - Day 24: [First Peck](https://gregpuzzles1.github.io/codevember-2026/24/)
 - Day 25: [The Three Gossips](https://gregpuzzles1.github.io/codevember-2026/25/)
 - Day 26: [Spore Alignment](https://gregpuzzles1.github.io/codevember-2026/26/)
+- Day 27: [Beneath the Prairie](https://gregpuzzles1.github.io/codevember-2026/27/)
 <!-- days:end -->
 
 ## Updating the calendar
